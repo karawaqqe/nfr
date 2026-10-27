@@ -9,7 +9,7 @@ export default function OrderSummary({ checkout = false }) {
   const { total, count, cart } = useShop();
   return (
     <aside className={styles.summary}>
-      <h2>Твой выбор</h2>
+      <h2>Your selection</h2>
       {checkout && (
         <ul className={styles.items}>
           {cart.map((item) => (
@@ -28,24 +28,24 @@ export default function OrderSummary({ checkout = false }) {
         </ul>
       )}
       <div>
-        <span>Товары ({count})</span>
+        <span>Items ({count})</span>
         <span>{formatPrice(total)}</span>
       </div>
       <div>
-        <span>Доставка</span>
-        <span>Не выполняется</span>
+        <span>Shipping</span>
+        <span>Not available</span>
       </div>
       <div className={styles.total}>
-        <span>Итого в демо</span>
+        <span>Demo total</span>
         <strong>{formatPrice(total)}</strong>
       </div>
       {!checkout && (
         <Link className="button" to="/checkout">
-          К оформлению <ArrowUpRight size={18} />
+          Checkout <ArrowUpRight size={18} />
         </Link>
       )}
       <p>
-        Демонстрационный магазин. Оплата не взимается, заказ не отправляется.
+        Demo store. No payment is taken and no order is shipped.
       </p>
     </aside>
   );

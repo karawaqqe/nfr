@@ -2,35 +2,35 @@
 export const categories = [
   {
     slug: "hoodies",
-    name: "Худи и свитшоты",
+    name: "Hoodies & Sweatshirts",
     label: "Hoodies & Sweatshirts",
     image: "hoodie",
   },
   {
     slug: "tops",
-    name: "Футболки и топы",
+    name: "T-Shirts & Tops",
     label: "T-Shirts & Tops",
     image: "tee",
   },
   {
     slug: "pants",
-    name: "Брюки и джинсы",
+    name: "Pants & Jeans",
     label: "Pants & Jeans",
     image: "pants",
   },
   {
     slug: "jackets",
-    name: "Куртки",
+    name: "Jackets",
     label: "Jackets & Outerwear",
     image: "jacket",
   },
   {
     slug: "accessories",
-    name: "Аксессуары",
+    name: "Accessories",
     label: "Accessories",
     image: "bag",
   },
-  { slug: "jewelry", name: "Украшения", label: "Jewelry", image: "chain" },
+  { slug: "jewelry", name: "Jewelry", label: "Jewelry", image: "chain" },
 ];
 
 const items = [
@@ -157,13 +157,13 @@ export const products = items.map(
     price,
     isNew,
     isFeatured,
-    description: `${name} — часть визуального мира NFR. Сдержанная палитра, выразительные детали и свобода сочетаний. Это демонстрационная модель: состав, точные замеры и фотографии будут добавлены перед запуском продаж.`,
+    description: `${name} — part of the NFR visual world. A restrained palette, expressive details and freedom to mix. This is a demo design: materials, exact measurements and photos will be added before sales launch.`,
     images: [`/products/${image}.svg`, `/products/${image}-detail.svg`],
     sizes:
       category === "jewelry" || category === "accessories"
         ? ["ONE SIZE"]
         : ["XS", "S", "M", "L", "XL"],
-    colors: category === "jewelry" ? ["Серебристый"] : ["Чёрный", "Графит"],
+    colors: category === "jewelry" ? ["Silver"] : ["Black", "Graphite"],
     stock: id === "11" ? 0 : 8,
     createdAt: `2026-10-${String(25 - index).padStart(2, "0")}`,
   }),

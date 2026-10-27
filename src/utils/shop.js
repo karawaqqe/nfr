@@ -1,10 +1,10 @@
 import { categories, getProduct } from "../data/products.js";
 
 export const formatPrice = (value) =>
-  new Intl.NumberFormat("pl-PL", { style: "currency", currency: "PLN" }).format(
+  new Intl.NumberFormat("en-GB", { style: "currency", currency: "PLN" }).format(
     value,
   ); // Одинаковый формат цен во всём магазине.
-export const itemKey = (item) => `${item.id}:${item.size}:${item.color}`; // Размер и цвет отличают позиции одного товара.
+export const itemKey = (item) => `${item.id}:${item.size}:${item.color}`; // Size и цвет отличают позиции одного товара.
 
 export function normalizeCart(value) {
   // Проверяю сохранённые данные: localStorage может быть старым или повреждённым.
@@ -12,6 +12,9 @@ export function normalizeCart(value) {
   const result = [];
   value.forEach((item) => {
     if (!item || typeof item !== "object") return;
+    // Keep previously saved carts when translating color labels.
+    const legacyColors = { "Чёрный": "Black", "Графит": "Graphite", "Серебристый": "Silver" };
+    item = { ...item, color: legacyColors[item.color] || item.color };
     const product = getProduct(item.id);
     if (
       !product ||

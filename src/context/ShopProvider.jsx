@@ -96,8 +96,7 @@ export function ShopProvider({ children }) {
     <ShopContext.Provider value={value}>
       {storageError && (
         <div className="notice" role="status">
-          Браузер не разрешил сохранение. Корзина работает до перезагрузки
-          страницы.
+          Browser storage is unavailable. Your cart will last until the page reloads.
         </div>
       )}
       {children}

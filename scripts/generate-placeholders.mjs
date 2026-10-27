@@ -22,7 +22,7 @@ await mkdir('public/products', { recursive: true });
 for (const [name, shape] of Object.entries(shapes)) { // Создаю общий вид и отдельное приближение детали для галереи.
   const print = ['hoodie', 'tee', 'sweater', 'longsleeve'].includes(name) ? graphic : '';
   for (const detail of [false, true]) {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 560" role="img" aria-label="Временный эскиз NFR">${defs}<g transform="${detail ? 'translate(-180 -130) scale(1.6)' : 'translate(0 10)'}" fill="url(#cloth)" stroke="#222" stroke-width="2" stroke-linejoin="round">${shape}${print}</g></svg>`;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 560" role="img" aria-label="NFR placeholder sketch">${defs}<g transform="${detail ? 'translate(-180 -130) scale(1.6)' : 'translate(0 10)'}" fill="url(#cloth)" stroke="#222" stroke-width="2" stroke-linejoin="round">${shape}${print}</g></svg>`;
     await writeFile(`public/products/${name}${detail ? '-detail' : ''}.svg`, svg);
   }
 }

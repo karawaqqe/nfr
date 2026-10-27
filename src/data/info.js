@@ -1,128 +1,60 @@
-// Не выдаю будущие условия магазина за действующие обещания: до запуска всё явно описано как демо.
 export const infoPages = {
   about: {
     eyebrow: "THIS IS NFR",
-    title: "Для тех, кто\nне вписывается.",
-    intro:
-      "NFR — независимый проект альтернативной одежды. Готическая эстетика, гранж и уличная культура в одном гардеробе.",
+    title: "For those who\nstand apart.",
+    intro: "NFR is an independent alternative clothing project. Gothic aesthetics, grunge and street culture in one wardrobe.",
     sections: [
-      [
-        "Свобода быть собой",
-        "Нам близки люди, которые находят себя в музыке, искусстве и вещах с характером. NFR — пространство для собственного стиля, а не набор правил.",
-      ],
-      [
-        "Тихий интерфейс. Громкий характер.",
-        "Чёрные силуэты, металлические детали, свободная посадка. Визуальный мир бренда строится на контрасте и оставляет место для твоей интерпретации.",
-      ],
-      [
-        "Первая глава",
-        "Сейчас NFR развивается как самостоятельный frontend-проект. Каталог содержит концепты моделей и временные иллюстрации. Реальная продажа, производство и доставка пока не запущены.",
-      ],
+      ["Freedom to be yourself", "We connect with people who find themselves in music, art and pieces with character. NFR is a space for personal style and self-expression."],
+      ["Quiet design. Loud character.", "Black silhouettes, metal details and relaxed fits. Our visual world is built on contrast, with room for your interpretation."],
+      ["The first chapter", "NFR is currently an independent frontend project. The catalog contains concept designs and placeholder illustrations. Real sales, production and shipping have not launched yet."],
     ],
   },
   contact: {
     eyebrow: "GET IN TOUCH",
-    title: "На связи.\nСкоро.",
-    intro: "Контакты бренда появятся здесь перед запуском реальных продаж.",
+    title: "Stay in touch.\nSoon.",
+    intro: "Brand contact details will appear here before real sales launch.",
     sections: [
-      [
-        "Поддержка",
-        "Рабочая почта и часы поддержки ещё не опубликованы. Сейчас форма оформления служит только демонстрацией и не отправляет обращения.",
-      ],
-      [
-        "Сотрудничество и социальные сети",
-        "Официальные профили и контакт для сотрудничества пока не добавлены. Мы опубликуем здесь проверенные адреса, когда они будут готовы.",
-      ],
-      [
-        "Вопросы об интерфейсе",
-        "Посмотрите раздел частых вопросов: там описаны корзина, избранное и ограничения демонстрационного заказа.",
-      ],
+      ["Support", "A support email and opening hours have not been published yet. The checkout form is currently a demo and does not send inquiries."],
+      ["Collaborations & social media", "Official profiles and a collaboration contact have not been added yet. We will publish verified links here when they are ready."],
+      ["Questions about the site", "Visit our FAQ for details about the cart, favorites and the limitations of demo orders."],
     ],
   },
   shipping: {
     eyebrow: "THE DETAILS",
-    title: "Доставка\nи возвраты.",
-    intro:
-      "Сейчас магазин работает в демонстрационном режиме. Посылки не отправляются, оплата не принимается.",
+    title: "Shipping\n& returns.",
+    intro: "The store is currently a demo. No parcels are shipped and no payments are accepted.",
     sections: [
-      [
-        "Доставка",
-        "Выбор страны и адреса позволяет проверить сценарий оформления. Он не подтверждает доступность доставки. Перевозчики, тарифы и сроки будут опубликованы до запуска магазина.",
-      ],
-      [
-        "Стоимость",
-        "В демо показана только сумма товаров. Стоимость реальной доставки пока не определена и не включается в расчёт.",
-      ],
-      [
-        "Возвраты",
-        "Демонстрационный заказ не является покупкой. Правила возврата, адрес приёма и контакт поддержки будут добавлены вместе с юридической информацией перед реальными продажами.",
-      ],
+      ["Shipping", "Selecting a country and address lets you try checkout. It does not confirm shipping availability. Carriers, rates and delivery times will be published before the store launches."],
+      ["Cost", "The demo shows only the total price of the items. Real shipping costs have not been determined and are not included in the total."],
+      ["Returns", "A demo order is not a purchase. Return policies, a return address and support details will be added with the legal information before real sales begin."],
     ],
   },
   privacy: {
     eyebrow: "YOUR DATA",
-    title: "Твои данные.",
-    intro:
-      "Текущая версия работает без аккаунта, аналитики и платёжных сервисов.",
+    title: "Your data.",
+    intro: "The current version works without accounts, analytics or payment services.",
     sections: [
-      [
-        "Что остаётся в браузере",
-        "Корзина и избранное сохраняются в localStorage под ключами nfr-cart и nfr-favorites. Там хранятся ID товаров, выбранные варианты и количество. Удалить их можно в интерфейсе магазина или через настройки данных сайта в браузере.",
-      ],
-      [
-        "Данные формы",
-        "Контакты и адрес используются только для проверки формы в текущей вкладке. Приложение не записывает их в localStorage и не передаёт на сервер. При демонстрации можно вводить вымышленные значения.",
-      ],
-      [
-        "Перед запуском",
-        "После подключения сервера эта страница будет обновлена с указанием оператора данных, целей обработки, сроков хранения и доступных способов связи.",
-      ],
+      ["What stays in your browser", "Your cart and favorites are saved in localStorage under nfr-cart and nfr-favorites. This includes product IDs, selected options and quantities. Remove them using the store interface or your browser's site data settings."],
+      ["Form data", "Contact and address details are used only to validate the form in your current tab. The app does not save them in localStorage or send them to a server. You can use fictional details for the demo."],
+      ["Before launch", "Once a server is connected, this page will be updated with the data controller, processing purposes, retention periods and available contact methods."],
     ],
   },
   terms: {
     eyebrow: "DEMO TERMS",
-    title: "Примерить\nинтерфейс.",
-    intro: "NFR в этой версии — демонстрационный frontend интернет-магазина.",
+    title: "Try the\nexperience.",
+    intro: "This version of NFR is a demo storefront frontend.",
     sections: [
-      [
-        "Каталог",
-        "Товары, цены, варианты и остатки — демонстрационные данные. Изображения являются эскизами, а не фотографиями реальных изделий.",
-      ],
-      [
-        "Оформление",
-        "Кнопка «Создать демо-заказ» проверяет поля, показывает локальное подтверждение и очищает корзину. Она не заключает договор покупки, не списывает деньги и не отправляет заказ магазину.",
-      ],
-      [
-        "Следующий этап",
-        "Для реальных продаж нужны сервер, актуальный учёт остатков, платёжный провайдер, подтверждённые сведения о продавце и опубликованные условия покупки.",
-      ],
+      ["Catalog", "Products, prices, options and stock levels are demo data. Images are sketches, not photographs of real products."],
+      ["Checkout", "The Create demo order button validates the fields, displays a local confirmation and clears the cart. It does not create a purchase agreement, charge you or send an order to the store."],
+      ["The next step", "Real sales require a server, up-to-date inventory, a payment provider, verified seller information and published purchase terms."],
     ],
   },
 };
-
 export const questions = [
-  [
-    "Можно ли уже купить вещи?",
-    "Пока нет. Можно изучить каталог, сохранить вещи и пройти демонстрационное оформление. Реальная оплата не подключена.",
-  ],
-  [
-    "Сохраняется ли корзина?",
-    "Да, в этом браузере через localStorage. Если браузер запрещает хранение данных, появится предупреждение. В другом браузере корзина будет отдельной.",
-  ],
-  [
-    "Как добавить другой размер?",
-    "Откройте страницу товара, выберите нужные размер и цвет и добавьте вещь. Каждый вариант отображается отдельной строкой в корзине.",
-  ],
-  [
-    "Почему вместо фото эскизы?",
-    "Реальные фотографии ещё не подготовлены. Локальные иллюстрации показывают тип модели и помечены как временные. Цвет и фактура финального изделия могут отличаться.",
-  ],
-  [
-    "Что происходит с данными при оформлении?",
-    "Они проверяются в вашей вкладке и не отправляются на сервер. Для демонстрации используйте вымышленные данные.",
-  ],
-  [
-    "Что делать, если ничего не находится?",
-    "Проверьте запрос, диапазон цен и размер. Кнопка сброса вернёт полный каталог.",
-  ],
+  ["Can I buy the pieces yet?", "Not yet. You can explore the catalog, save pieces and try demo checkout. Real payments are not connected."],
+  ["Is my cart saved?", "Yes, in this browser using localStorage. If your browser blocks storage, a warning will appear. A different browser has a separate cart."],
+  ["How do I add another size?", "Open the product page, choose your size and color, and add the piece. Each option appears as a separate line in the cart."],
+  ["Why are there sketches instead of photos?", "Real photos are not ready yet. Local illustrations show the design and are marked as placeholders. The final product's color and texture may differ."],
+  ["What happens to my checkout details?", "They are validated in your tab and are not sent to a server. Use fictional details for the demo."],
+  ["What if I cannot find anything?", "Check your search, price range and size. Resetting the filters brings back the full catalog."],
 ];

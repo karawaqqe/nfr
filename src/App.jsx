@@ -30,10 +30,10 @@ export default function App() {
           path="*"
           element={
             <EmptyState
-              title="404 — вне маршрута"
-              description="Такой страницы нет. Но есть вещи, которые стоит найти."
+              title="404 — off the map"
+              description="This page does not exist. But there are pieces worth finding."
               to="/"
-              label="На главную"
+              label="Back to home"
             />
           }
         />

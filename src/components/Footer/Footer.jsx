@@ -12,33 +12,33 @@ export default function Footer() {
         <div>
           <span className="eyebrow">STAY OUTSIDE THE LINES</span>
           <h2>
-            Твой стиль.
+            Your style.
             <br />
-            Твои правила.
+            Your rules.
           </h2>
           <Link to="/about" className="textLink">
-            Это NFR <ArrowUpRight size={18} />
+            This is NFR <ArrowUpRight size={18} />
           </Link>
         </div>
         <div>
-          <h3>Магазин</h3>
-          <Link to="/catalog">Все вещи</Link>
-          <Link to="/catalog?new=1">Новый дроп</Link>
-          <Link to="/favorites">Избранное</Link>
-          <Link to="/cart">Корзина</Link>
+          <h3>Shop</h3>
+          <Link to="/catalog">All pieces</Link>
+          <Link to="/catalog?new=1">New drop</Link>
+          <Link to="/favorites">Favorites</Link>
+          <Link to="/cart">Cart</Link>
         </div>
         <div>
-          <h3>Информация</h3>
-          <Link to="/shipping">Доставка и возвраты</Link>
-          <Link to="/faq">Частые вопросы</Link>
-          <Link to="/contact">Контакты</Link>
-          <Link to="/privacy">Конфиденциальность</Link>
-          <Link to="/terms">Условия демо</Link>
+          <h3>Information</h3>
+          <Link to="/shipping">Shipping & returns</Link>
+          <Link to="/faq">FAQ</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/privacy">Privacy</Link>
+          <Link to="/terms">Demo terms</Link>
         </div>
       </div>
       <div className={styles.bottom}>
         <span>© {currentYear} NFR</span>
-        <span>Демонстрационная витрина · PLN · RU</span>
+        <span>Demo storefront · PLN · EN</span>
         <span>NOT FOR EVERYONE. FOR YOU.</span>
       </div>
     </footer>

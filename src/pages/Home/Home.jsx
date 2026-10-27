@@ -20,16 +20,16 @@ export default function Home() {
             <span>EVERYONE.</span>
           </h1>
           <p>
-            Не вписываться. Быть собой.
+            Stand apart. Be yourself.
             <br />
-            Одежда для тех, кто выбирает собственный ритм.
+            Clothing for those who follow their own rhythm.
           </p>
           <Link className="button" to="/catalog">
-            Найти своё <ArrowUpRight size={19} />
+            Find your own <ArrowUpRight size={19} />
           </Link>
           <div className={styles.heroBottom}>
             <span>DROP 001 / OUT OF LINE</span>
-            <a href="#selected" aria-label="К избранным вещам">
+            <a href="#selected" aria-label="Explore selected pieces">
               <ArrowDown size={18} />
             </a>
           </div>
@@ -46,18 +46,18 @@ export default function Home() {
           </span>
           <img
             src="/products/hoodie.svg"
-            alt="Эскиз чёрного худи Void с графикой NFR"
+            alt="Sketch of the black Void hoodie with NFR graphics"
           />
           <div className={styles.artCaption}>
             <span>
               VOID OVERSIZED HOODIE
               <br />
-              <small>КОНЦЕПТ КОЛЛЕКЦИИ / ЭСКИЗ</small>
+              <small>COLLECTION CONCEPT / SKETCH</small>
             </span>
             <Link
               to="/product/void-hoodie"
               className="iconButton"
-              aria-label="Смотреть Void hoodie"
+              aria-label="View Void hoodie"
             >
               <Plus />
             </Link>
@@ -78,12 +78,12 @@ export default function Home() {
           <div>
             <span className="eyebrow">01 / THE SELECTION</span>
             <h2>
-              Вне рамок.
-              <br />В твоём гардеробе.
+              Outside the lines.
+              <br />Inside your wardrobe.
             </h2>
           </div>
           <Link to="/catalog" className="textLink">
-            Весь каталог <ArrowUpRight size={18} />
+            Shop all <ArrowUpRight size={18} />
           </Link>
         </div>
         <ProductGrid products={featured} />
@@ -92,9 +92,9 @@ export default function Home() {
         <div className="sectionHeading">
           <div>
             <span className="eyebrow">02 / FIND YOUR UNIFORM</span>
-            <h2>Собери свой силуэт.</h2>
+            <h2>Build your silhouette.</h2>
           </div>
-          <span className="muted">Шесть направлений. Никаких правил.</span>
+          <span className="muted">Six directions. No rules.</span>
         </div>
         <div className={styles.categoryGrid}>
           {categories.map((category, index) => (
@@ -121,7 +121,7 @@ export default function Home() {
         <div className={styles.dropImage}>
           <img
             src="/products/jacket.svg"
-            alt="Эскиз куртки Static из первой коллекции"
+            alt="Sketch of the Static jacket from the first collection"
             loading="lazy"
           />
           <span>PROTOTYPE / STATIC 001</span>
@@ -134,50 +134,48 @@ export default function Home() {
             OF LINE<span>†</span>
           </h2>
           <p>
-            Грубые фактуры. Свободные формы.
+            Raw textures. Relaxed shapes.
             <br />
-            Детали, которые говорят за тебя.
+            Details that speak for you.
           </p>
           <Link className="button" to="/catalog?new=1">
-            Открыть дроп <ArrowUpRight size={18} />
+            Explore the drop <ArrowUpRight size={18} />
           </Link>
           <span className={styles.dropNote}>
-            Первая глава. Твоя интерпретация.
+            The first chapter. Your interpretation.
           </span>
         </div>
       </section>
       <section className={`${styles.identity} section`}>
         <img
           src={logo}
-          alt="Металлический готический логотип NFR"
+          alt="Metallic gothic NFR logo"
           loading="lazy"
         />
         <div>
           <span className="eyebrow">03 / THIS IS NFR</span>
           <h2>
-            Не тренд.
+            Beyond trends.
             <br />
-            Состояние.
+            A state of mind.
           </h2>
           <p>
-            NFR рождается на пересечении музыки, уличной культуры и личной
-            свободы. Мы не говорим, кем тебе быть. Мы создаём пространство, где
-            можно быть собой.
+            NFR lives at the intersection of music, street culture and personal freedom. We create space for you to be yourself.
           </p>
           <Link to="/about" className="textLink">
-            Ближе к бренду <ArrowUpRight size={18} />
+            Meet the brand <ArrowUpRight size={18} />
           </Link>
         </div>
       </section>
       <section className={styles.news}>
         <span className="eyebrow">KEEP IN THE LOOP</span>
-        <h2>Следующая глава — впереди.</h2>
+        <h2>The next chapter is ahead.</h2>
         <p>
-          Рассылка появится после запуска магазина.
-          <br />А пока знакомься с первым дропом.
+          Our newsletter will arrive after the store launches.
+          <br />Until then, explore the first drop.
         </p>
         <Link to="/catalog?new=1" className="textLink">
-          Смотреть новую коллекцию <ArrowUpRight size={18} />
+          View the new collection <ArrowUpRight size={18} />
         </Link>
       </section>
     </>

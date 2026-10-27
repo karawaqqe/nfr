@@ -9,8 +9,8 @@ export default function Info({ page }) {
     return (
       <section className={`${styles.page} section`}>
         <span className="eyebrow">A FEW ANSWERS</span>
-        <h1>Хороший вопрос.</h1>
-        <p className={styles.intro}>Всё о текущей версии NFR.</p>
+        <h1>Good question.</h1>
+        <p className={styles.intro}>Everything about the current version of NFR.</p>
         <div className={styles.faq}>
           {questions.map(([question, answer]) => (
             <details key={question}>
@@ -20,7 +20,7 @@ export default function Info({ page }) {
           ))}
         </div>
         <Link to="/catalog" className="textLink">
-          Вернуться к вещам <ArrowUpRight size={18} />
+          Back to the collection <ArrowUpRight size={18} />
         </Link>
       </section>
     );
@@ -41,7 +41,7 @@ export default function Info({ page }) {
         ))}
       </div>
       <Link className="textLink" to={page === "contact" ? "/faq" : "/catalog"}>
-        {page === "contact" ? "Частые вопросы" : "Открыть каталог"}
+        {page === "contact" ? "FAQ" : "Explore the catalog"}
         <ArrowUpRight size={18} />
       </Link>
     </section>

@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { normalizeCart, filterProducts, itemKey } from "../src/utils/shop.js";
 import { products } from "../src/data/products.js";
 
-const item = { id: "01", size: "M", color: "Чёрный", quantity: 2 };
+const item = { id: "01", size: "M", color: "Black", quantity: 2 };
 const filters = {
   category: "",
   query: "",
@@ -38,7 +38,7 @@ test("Разные размеры и цвета остаются отдельн�
   const result = normalizeCart([
     item,
     { ...item, size: "L" },
-    { ...item, color: "Графит" },
+    { ...item, color: "Graphite" },
   ]);
   assert.equal(result.length, 3);
   assert.equal(new Set(result.map(itemKey)).size, 3);

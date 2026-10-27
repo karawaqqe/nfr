@@ -4,14 +4,14 @@ export default function Quantity({
   value,
   max,
   onChange,
-  label = "Количество",
+  label = "Quantity",
 }) {
   // Кнопки не позволяют выйти за доступный остаток.
   return (
     <div className="quantity" role="group" aria-label={label}>
       <button
         type="button"
-        aria-label={`Уменьшить: ${label}`}
+        aria-label={`Decrease: ${label}`}
         disabled={value <= 1}
         onClick={() => onChange(value - 1)}
       >
@@ -20,7 +20,7 @@ export default function Quantity({
       <span aria-live="polite">{value}</span>
       <button
         type="button"
-        aria-label={`Увеличить: ${label}`}
+        aria-label={`Increase: ${label}`}
         disabled={value >= max}
         onClick={() => onChange(value + 1)}
       >

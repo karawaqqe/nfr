@@ -15,16 +15,16 @@ const fields = [
     autoComplete: "email",
     wide: true,
   },
-  { name: "firstName", label: "Имя", autoComplete: "given-name" },
-  { name: "lastName", label: "Фамилия", autoComplete: "family-name" },
+  { name: "firstName", label: "First name", autoComplete: "given-name" },
+  { name: "lastName", label: "Last name", autoComplete: "family-name" },
   {
     name: "address",
-    label: "Улица, дом, квартира",
+    label: "Street address, building, apartment",
     autoComplete: "street-address",
     wide: true,
   },
-  { name: "postalCode", label: "Почтовый индекс", autoComplete: "postal-code" },
-  { name: "city", label: "Город", autoComplete: "address-level2" },
+  { name: "postalCode", label: "Postal code", autoComplete: "postal-code" },
+  { name: "city", label: "City", autoComplete: "address-level2" },
 ];
 
 export default function Checkout() {
@@ -38,10 +38,10 @@ export default function Checkout() {
     const nextErrors = {};
     fields.forEach((field) => {
       if (!data[field.name]?.trim())
-        nextErrors[field.name] = "Заполните это поле.";
+        nextErrors[field.name] = "Please fill in this field.";
     });
     if (data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim()))
-      nextErrors.email = "Укажите email в формате name@example.com.";
+      nextErrors.email = "Enter an email in the format name@example.com.";
     if (
       data.postalCode?.trim() &&
       (data.country === "PL"
@@ -50,12 +50,12 @@ export default function Checkout() {
     )
       nextErrors.postalCode =
         data.country === "PL"
-          ? "Для Польши используйте формат 00-000."
-          : "Индекс должен содержать 5 цифр.";
+          ? "For Poland, use the format 00-000."
+          : "Postal code must contain 5 digits.";
     if (!["PL", "DE"].includes(data.country))
-      nextErrors.country = "Выберите страну.";
+      nextErrors.country = "Please select a country.";
     if (!data.consent)
-      nextErrors.consent = "Подтвердите, что понимаете условия демо.";
+      nextErrors.consent = "Please confirm that you understand the demo terms.";
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) {
       event.currentTarget.elements[Object.keys(nextErrors)[0]]?.focus();
@@ -76,47 +76,46 @@ export default function Checkout() {
       <section className={styles.complete} role="status">
         <Check size={36} />
         <span className="eyebrow">{order.number}</span>
-        <h1>Демо-заказ создан.</h1>
+        <h1>Demo order created.</h1>
         <p>
-          Вы прошли весь путь оформления.
+          You have completed checkout.
           <br />
-          Деньги не списаны, заказ не передан магазину и не будет отправлен.
+          No payment was taken. The order was not sent to the store and will not be shipped.
         </p>
         <p>
-          Товаров: {order.count} · {formatPrice(order.total)}
+          Items: {order.count} · {formatPrice(order.total)}
         </p>
         <p className="muted">
-          Контактные данные не сохранены и не отправлены на сервер.
+          Your contact details were not saved or sent to a server.
         </p>
         <Link className="button" to="/catalog">
-          Вернуться в каталог <ArrowUpRight size={18} />
+          Back to the catalog <ArrowUpRight size={18} />
         </Link>
       </section>
     );
   if (!cart.length)
     return (
       <EmptyState
-        title="Сначала выберите вещи."
-        description="Для оформления демо-заказа добавьте хотя бы один товар в корзину."
+        title="Choose your pieces first."
+        description="Add at least one item to your cart to place a demo order."
       />
     );
 
   return (
     <section className="section pageSection">
       <div className="breadcrumbs">
-        <Link to="/cart">Корзина</Link>
+        <Link to="/cart">Cart</Link>
         <span>/</span>
-        <span>Оформление</span>
+        <span>Checkout</span>
       </div>
       <span className="eyebrow">NFR / ONE LAST STEP</span>
-      <h1>Почти твоё.</h1>
+      <h1>Almost yours.</h1>
       <div className="notice">
-        Демо-режим. Можно использовать вымышленные контактные данные. Реальная
-        покупка не совершается.
+        Demo mode. Feel free to use fictional contact details. No real purchase is made.
       </div>
       <div className={styles.layout}>
         <form noValidate onSubmit={submit}>
-          <h2>Контакты и доставка</h2>
+          <h2>Contact & shipping</h2>
           <div className={styles.fields}>
             {fields.map((field) => (
               <label
@@ -145,15 +144,15 @@ export default function Checkout() {
               </label>
             ))}
             <label className={styles.wide} htmlFor="country">
-              Страна *
+              Country *
               <select
                 name="country"
                 id="country"
                 autoComplete="country"
                 defaultValue="PL"
               >
-                <option value="PL">Польша</option>
-                <option value="DE">Германия</option>
+                <option value="PL">Poland</option>
+                <option value="DE">Germany</option>
               </select>
               {errors.country && (
                 <span className="error">{errors.country}</span>
@@ -161,14 +160,12 @@ export default function Checkout() {
             </label>
           </div>
           <p className={styles.hint}>
-            Индекс: Польша — 00-000, Германия — 00000. Страны представлены для
-            демонстрации формы.
+            Postal codes: Poland — 00-000, Germany — 00000. Countries are included to demonstrate the form.
           </p>
           <div className={styles.payment}>
-            <h2>Оплата</h2>
+            <h2>Payment</h2>
             <p>
-              Платёжный провайдер ещё не подключён. Банковские данные не
-              запрашиваются.
+              A payment provider is not connected yet. No bank details are requested.
             </p>
           </div>
           <label className="checkbox">
@@ -180,11 +177,11 @@ export default function Checkout() {
               aria-describedby={errors.consent ? "consent-error" : undefined}
             />
             <span>
-              Я понимаю{" "}
+              I understand the{" "}
               <Link to="/terms" target="_blank" rel="noreferrer">
-                условия демо
+                demo terms
               </Link>
-              : это проверка интерфейса, а не реальный заказ.
+              : this is an interface demo, not a real order.
             </span>
           </label>
           {errors.consent && (
@@ -193,7 +190,7 @@ export default function Checkout() {
             </p>
           )}
           <button type="submit" className="button">
-            Создать демо-заказ <ArrowUpRight size={18} />
+            Create demo order <ArrowUpRight size={18} />
           </button>
         </form>
         <OrderSummary checkout />

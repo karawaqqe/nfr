@@ -14,7 +14,7 @@ export default function Cart() {
     <section className="section pageSection">
       <span className="eyebrow">NFR / MAKE IT YOURS</span>
       <h1>
-        Корзина <span className="muted">({count})</span>
+        Cart <span className="muted">({count})</span>
       </h1>
       {cart.length ? (
         <div className={styles.layout}>
@@ -52,7 +52,7 @@ export default function Cart() {
                       </strong>
                       <button
                         className="iconButton"
-                        aria-label={`Удалить ${product.name}, ${item.size}, ${item.color}`}
+                        aria-label={`Remove ${product.name}, ${item.size}, ${item.color}`}
                         onClick={() => removeFromCart(key)}
                       >
                         <Trash2 size={18} />
@@ -64,15 +64,15 @@ export default function Cart() {
             </ul>
             <Link className="textLink" to="/catalog">
               <ArrowLeft size={16} />
-              Продолжить выбор
+              Continue shopping
             </Link>
           </div>
           <OrderSummary />
         </div>
       ) : (
         <EmptyState
-          title="Чистый лист."
-          description="Самое время найти вещь, которая будет твоей."
+          title="A clean slate."
+          description="Time to find a piece to make your own."
         />
       )}
     </section>

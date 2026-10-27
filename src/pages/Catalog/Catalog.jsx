@@ -9,7 +9,7 @@ import styles from "./Catalog.module.css";
 
 export default function Catalog() {
   const { category } = useParams();
-  const [params, setParams] = useSearchParams(); // Фильтры живут в URL и сохраняются после обновления страницы.
+  const [params, setParams] = useSearchParams(); // Filters живут в URL и сохраняются после обновления страницы.
   const [filtersOpen, setFiltersOpen] = useState(false);
   const selectedCategory = categories.find((item) => item.slug === category);
   const filters = {
@@ -40,16 +40,16 @@ export default function Catalog() {
   if (category && !selectedCategory)
     return (
       <EmptyState
-        title="Категория не найдена"
-        description="Выберите направление в общем каталоге."
+        title="Category not found"
+        description="Explore a category in the full catalog."
       />
     );
   return (
     <section className="section pageSection">
       <div className="breadcrumbs">
-        <Link to="/">Главная</Link>
+        <Link to="/">Home</Link>
         <span>/</span>
-        <span>Каталог</span>
+        <span>Catalog</span>
         {selectedCategory && (
           <>
             <span>/</span>
@@ -62,14 +62,14 @@ export default function Catalog() {
           <span className="eyebrow">NFR / THE WARDROBE</span>
           <h1>
             {selectedCategory?.name ||
-              (filters.onlyNew ? "Новый дроп." : "Твоя новая форма.")}
+              (filters.onlyNew ? "New drop." : "Your new uniform.")}
           </h1>
         </div>
-        <span className="muted">Вещи с характером. Без лишних слов.</span>
+        <span className="muted">Pieces with character. No extra words.</span>
       </div>
       <div className={styles.categoryLinks}>
         <Link to="/catalog" aria-current={!category ? "page" : undefined}>
-          Всё
+          All
         </Link>
         {categories.map((item) => (
           <Link
@@ -93,28 +93,28 @@ export default function Catalog() {
           }}
         >
           <label className={styles.search}>
-            Поиск
+            Search
             <input
               key={filters.query}
               name="q"
               type="search"
               defaultValue={filters.query}
-              placeholder="Название или описание"
+              placeholder="Name or description"
             />
           </label>
           <button className="button" type="submit">
-            Найти
+            Search
           </button>
         </form>
         <label>
-          Сортировка
+          Sort by
           <select
             value={filters.sort}
             onChange={(event) => changeFilter("sort", event.target.value)}
           >
-            <option value="newest">Сначала новые</option>
-            <option value="price-asc">Цена: по возрастанию</option>
-            <option value="price-desc">Цена: по убыванию</option>
+            <option value="newest">Newest first</option>
+            <option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option>
           </select>
         </label>
         <button
@@ -124,7 +124,7 @@ export default function Catalog() {
           aria-controls="catalog-filters"
         >
           <SlidersHorizontal size={16} />
-          Фильтры
+          Filters
         </button>
       </div>
       <div className={styles.layout}>
@@ -133,17 +133,17 @@ export default function Catalog() {
           className={`${styles.filters} ${filtersOpen ? styles.visible : ""}`}
         >
           <div className={styles.filterTitle}>
-            <h2>Фильтры</h2>
+            <h2>Filters</h2>
             <SlidersHorizontal size={16} />
           </div>
           <fieldset>
-            <legend>Цена, $</legend>
+            <legend>Price, PLN</legend>
             <p className={styles.filterHint}>
-              Применяется после выхода из поля.
+              Applied when you leave the field.
             </p>
             <div className={styles.priceInputs}>
               <label>
-                От
+                From
                 <input
                   type="number"
                   min="0"
@@ -155,7 +155,7 @@ export default function Catalog() {
                 />
               </label>
               <label>
-                До
+                To
                 <input
                   type="number"
                   min="0"
@@ -168,11 +168,11 @@ export default function Catalog() {
               </label>
             </div>
             {filters.min > filters.max && (
-              <p className="error">Минимальная цена выше максимальной.</p>
+              <p className="error">Minimum price exceeds maximum price.</p>
             )}
           </fieldset>
           <fieldset>
-            <legend>Размер</legend>
+            <legend>Size</legend>
             <div className={styles.sizes}>
               {["XS", "S", "M", "L", "XL", "ONE SIZE"].map((size) => (
                 <button
@@ -196,29 +196,29 @@ export default function Catalog() {
                 changeFilter("new", event.target.checked ? "1" : "")
               }
             />
-            Новая коллекция
+            New collection
           </label>
           <Link
             className="textLink"
             to="/catalog"
             onClick={() => setFiltersOpen(false)}
           >
-            Сбросить всё <X size={14} />
+            Reset all <X size={14} />
           </Link>
         </aside>
         <div>
           <p className={styles.result} aria-live="polite">
-            Найдено товаров: {found.length}
-            <span>КОНЦЕПТ-КАТАЛОГ / ЭСКИЗЫ</span>
+            Items found: {found.length}
+            <span>CONCEPT CATALOG / SKETCHES</span>
           </p>
           {found.length ? (
             <ProductGrid products={found} />
           ) : (
             <div className="emptyState">
-              <h2>Пока ничего.</h2>
-              <p>Попробуйте другой запрос или уберите часть фильтров.</p>
+              <h2>Nothing here yet.</h2>
+              <p>Try another search or remove some filters.</p>
               <button className="button" onClick={() => setParams({})}>
-                Очистить фильтры
+                Clear filters
               </button>
             </div>
           )}

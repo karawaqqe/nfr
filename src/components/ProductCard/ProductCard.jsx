@@ -16,17 +16,17 @@ export default function ProductCard({ product }) {
         </Link>
         <div className={styles.tags}>
           {product.isNew && <span>NEW DROP</span>}
-          {!product.stock && <span>НЕТ В НАЛИЧИИ</span>}
+          {!product.stock && <span>OUT OF STOCK</span>}
         </div>
         <button
           className={`iconButton ${styles.favorite} ${saved ? styles.saved : ""}`}
-          aria-label={`${saved ? "Убрать из избранного" : "В избранное"}: ${product.name}`}
+          aria-label={`${saved ? "Remove from favorites" : "Add to favorites"}: ${product.name}`}
           aria-pressed={saved}
           onClick={() => toggleFavorite(product.id)}
         >
           <Heart size={18} fill={saved ? "currentColor" : "none"} />
         </button>
-        <span className={styles.preview}>ЭСКИЗ / NFR STUDIO</span>
+        <span className={styles.preview}>SKETCH / NFR STUDIO</span>
       </div>
       <div className={styles.info}>
         <div>

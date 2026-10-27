@@ -10,14 +10,14 @@ export default function Favorites() {
     <section className="section pageSection">
       <span className="eyebrow">NFR / YOUR SELECTION</span>
       <h1>
-        Избранное <span className="muted">({saved.length})</span>
+        Favorites <span className="muted">({saved.length})</span>
       </h1>
       {saved.length ? (
         <ProductGrid products={saved} />
       ) : (
         <EmptyState
-          title="То, что зацепило."
-          description="Нажмите на сердце у понравившейся вещи — она останется здесь."
+          title="The pieces that stayed with you."
+          description="Tap the heart on a piece you love to save it here."
         />
       )}
     </section>

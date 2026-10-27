@@ -39,13 +39,13 @@ export default function Header() {
       <div className={styles.strip}>
         <span>INDEPENDENT MINDS. DIFFERENT UNIFORMS.</span>
         <Link to="/catalog?new=1">
-          DROP 001 — УЖЕ В КАТАЛОГЕ <ArrowUpRight size={12} />
+          DROP 001 — AVAILABLE NOW <ArrowUpRight size={12} />
         </Link>
       </div>
       <div className={styles.bar}>
         <Link
           to="/"
-          aria-label="NFR — главная"
+          aria-label="NFR — home"
           className={styles.logo}
           onClick={() => setMenuOpen(false)}
         >
@@ -53,14 +53,14 @@ export default function Header() {
           <span>NOT FOR EVERYONE</span>
         </Link>
         <nav
-          aria-label="Основная навигация"
+          aria-label="Main navigation"
           id="main-navigation"
           className={`${styles.nav} ${menuOpen ? styles.open : ""}`}
         >
           {[
-            ["/catalog", "Каталог"],
-            ["/catalog?new=1", "Новый дроп"],
-            ["/about", "О бренде"],
+            ["/catalog", "Catalog"],
+            ["/catalog?new=1", "New drop"],
+            ["/about", "About"],
           ].map(([to, label]) => (
             <NavLink key={label} to={to} onClick={() => setMenuOpen(false)}>
               {label}
@@ -70,7 +70,7 @@ export default function Header() {
         <div className={styles.actions}>
           <button
             className="iconButton"
-            aria-label="Поиск"
+            aria-label="Search"
             aria-expanded={searchOpen}
             aria-controls="site-search"
             onClick={() => setSearchOpen(!searchOpen)}
@@ -80,7 +80,7 @@ export default function Header() {
           <Link
             className="iconButton"
             to="/favorites"
-            aria-label={`Избранное: ${favorites.length}`}
+            aria-label={`Favorites: ${favorites.length}`}
           >
             <Heart size={20} />
             {favorites.length > 0 && (
@@ -90,14 +90,14 @@ export default function Header() {
           <Link
             className="iconButton"
             to="/cart"
-            aria-label={`Корзина: ${count}`}
+            aria-label={`Cart: ${count}`}
           >
             <ShoppingBag size={20} />
             <span className={styles.count}>({count})</span>
           </Link>
           <button
             className={`iconButton ${styles.menuButton}`}
-            aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             aria-controls="main-navigation"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -108,16 +108,16 @@ export default function Header() {
       </div>
       {searchOpen && (
         <form id="site-search" className={styles.search} onSubmit={search}>
-          <label htmlFor="header-search">Найти свою вещь</label>
+          <label htmlFor="header-search">Find your piece</label>
           <input
             id="header-search"
             name="q"
             type="search"
-            placeholder="Худи, джинсы, украшения…"
+            placeholder="Hoodies, jeans, jewelry…"
             autoFocus
           />
           <button className="button" type="submit">
-            Найти <Search size={16} />
+            Search <Search size={16} />
           </button>
         </form>
       )}

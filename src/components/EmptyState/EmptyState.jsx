@@ -5,7 +5,7 @@ export default function EmptyState({
   title,
   description,
   to = "/catalog",
-  label = "В каталог",
+  label = "Shop the collection",
 }) {
   return (
     <div className="emptyState">

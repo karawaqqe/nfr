@@ -15,8 +15,8 @@ export default function Product() {
   if (!product)
     return (
       <EmptyState
-        title="Товар не найден"
-        description="Возможно, ссылка устарела. Посмотрите другие вещи в каталоге."
+        title="Product not found"
+        description="This link may be out of date. Explore other pieces in the catalog."
       />
     );
   return <ProductDetails key={product.id} product={product} />; // При переходе к другому товару сбрасываю выбор варианта.
@@ -42,22 +42,22 @@ function ProductDetails({ product }) {
     event.preventDefault();
     setAdded(false);
     if (!size) {
-      setMessage("Сначала выберите размер.");
+      setMessage("Please select a size first.");
       return;
     }
     const success = addToCart({ id: product.id, size, color, quantity });
     setAdded(success);
     setMessage(
       success
-        ? "Добавлено в корзину."
-        : "Недостаточно доступных единиц. Проверьте количество в корзине.",
+        ? "Added to cart."
+        : "Not enough stock available. Check the quantity in your cart.",
     );
   }
 
   return (
     <section className="section pageSection">
       <div className="breadcrumbs">
-        <Link to="/catalog">Каталог</Link>
+        <Link to="/catalog">Catalog</Link>
         <span>/</span>
         <Link to={`/catalog/${product.category}`}>{category.name}</Link>
         <span>/</span>
@@ -68,15 +68,15 @@ function ProductDetails({ product }) {
           <div className={styles.mainImage}>
             <img
               src={product.images[imageIndex]}
-              alt={`${product.name} — ${imageIndex === 0 ? "общий эскиз" : "эскиз детали"}`}
+              alt={`${product.name} — ${imageIndex === 0 ? "full sketch" : "detail sketch"}`}
             />
-            <span>Временная иллюстрация · цвет показан условно</span>
+            <span>Placeholder illustration · color is indicative</span>
           </div>
           <div className={styles.thumbnails}>
             {product.images.map((src, index) => (
               <button
                 key={src}
-                aria-label={`Показать ${index === 0 ? "общий вид" : "деталь"}`}
+                aria-label={`Show ${index === 0 ? "full view" : "detail"}`}
                 aria-pressed={imageIndex === index}
                 onClick={() => setImageIndex(index)}
               >
@@ -95,16 +95,16 @@ function ProductDetails({ product }) {
           <p className={styles.stock}>
             {product.stock ? (
               <>
-                <span />В наличии в демо-каталоге
+                <span />In stock in the demo catalog
               </>
             ) : (
-              "Нет в наличии"
+              "Out of stock"
             )}
           </p>
           <form onSubmit={addProduct}>
             <fieldset>
               <legend>
-                Размер <span>{size || "Выберите размер"}</span>
+                Size <span>{size || "Select a size"}</span>
               </legend>
               <div className={styles.options}>
                 {product.sizes.map((value) => (
@@ -126,17 +126,15 @@ function ProductDetails({ product }) {
             </fieldset>
             <details className={styles.sizeGuide}>
               <summary>
-                <Ruler size={15} /> Как выбрать размер
+                <Ruler size={15} /> Choosing your size
               </summary>
               <p>
-                XS–XL — обозначения демонстрационных вариантов. Точные замеры
-                каждой модели появятся вместе с реальными образцами. ONE SIZE
-                обозначает единый размер.
+                XS–XL are demo size options. Exact measurements will be added when physical samples are available. ONE SIZE means a single size option.
               </p>
             </details>
             <fieldset>
               <legend>
-                Цвет <span>{color}</span>
+                Color <span>{color}</span>
               </legend>
               <div className={styles.options}>
                 {product.colors.map((value) => (
@@ -173,16 +171,16 @@ function ProductDetails({ product }) {
               >
                 {added ? (
                   <>
-                    <Check size={18} /> Добавлено
+                    <Check size={18} /> Added
                   </>
                 ) : (
-                  "Добавить в корзину"
+                  "Add to cart"
                 )}
               </button>
               <button
                 type="button"
                 className="iconButton"
-                aria-label="В избранное"
+                aria-label="Add to favorites"
                 aria-pressed={favorites.includes(product.id)}
                 onClick={() => toggleFavorite(product.id)}
               >
@@ -200,7 +198,7 @@ function ProductDetails({ product }) {
                 <>
                   {" "}
                   <Link to="/cart" className="textLink">
-                    Перейти в корзину <ArrowUpRight size={14} />
+                    View cart <ArrowUpRight size={14} />
                   </Link>
                 </>
               )}
@@ -208,17 +206,16 @@ function ProductDetails({ product }) {
           </form>
           <div className={styles.notes}>
             <details>
-              <summary>О модели и материалах</summary>
+              <summary>Design & materials</summary>
               <p>
-                Сейчас это концепт модели. Состав, уход и реальные фотографии
-                будут подтверждены перед началом продаж.
+                This is currently a concept design. Materials, care instructions and real photos will be confirmed before sales begin.
               </p>
             </details>
             <details>
-              <summary>Доставка и возврат</summary>
+              <summary>Shipping & returns</summary>
               <p>
-                Реальные отправки пока не выполняются.{" "}
-                <Link to="/shipping">Подробнее об условиях демо</Link>.
+                Real orders are not being shipped yet.{" "}
+                <Link to="/shipping">Read the demo terms</Link>.
               </p>
             </details>
           </div>
@@ -229,7 +226,7 @@ function ProductDetails({ product }) {
           <div className="sectionHeading">
             <div>
               <span className="eyebrow">COMPLETE YOUR WORLD</span>
-              <h2>В том же ритме.</h2>
+              <h2>On the same wavelength.</h2>
             </div>
           </div>
           <ProductGrid products={related} />

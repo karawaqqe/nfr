@@ -13,7 +13,7 @@ export default function Layout() {
   return (
     <>
       <a href="#main" className="skipLink">
-        К содержимому
+        Skip to content
       </a>
       <Header />
       <main id="main" tabIndex={-1}>
