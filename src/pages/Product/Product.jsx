@@ -8,6 +8,7 @@ import ProductGrid from "../../components/ProductGrid/ProductGrid";
 import EmptyState from "../../components/EmptyState/EmptyState";
 import Quantity from "../../components/Quantity/Quantity";
 import styles from "./Product.module.css";
+import ProductImage from "../../components/ProductImage/ProductImage";
 
 export default function Product() {
   const { slug } = useParams();
@@ -66,13 +67,13 @@ function ProductDetails({ product }) {
       <div className={styles.layout}>
         <div>
           <div className={styles.mainImage}>
-            <img
+            <ProductImage
               src={product.images[imageIndex]}
-              alt={`${product.name} — ${imageIndex === 0 ? "full sketch" : "detail sketch"}`}
+              alt={product.name}
+              loading="eager"
             />
-            <span>Placeholder illustration · color is indicative</span>
           </div>
-          <div className={styles.thumbnails}>
+          {product.images.length > 1 && <div className={styles.thumbnails}>
             {product.images.map((src, index) => (
               <button
                 key={src}
@@ -83,7 +84,7 @@ function ProductDetails({ product }) {
                 <img src={src} alt="" />
               </button>
             ))}
-          </div>
+          </div>}
         </div>
         <div className={styles.details}>
           <span className="eyebrow">
@@ -95,7 +96,8 @@ function ProductDetails({ product }) {
           <p className={styles.stock}>
             {product.stock ? (
               <>
-                <span />In stock in the demo catalog
+                <span />
+                In stock in the demo catalog
               </>
             ) : (
               "Out of stock"
@@ -129,7 +131,9 @@ function ProductDetails({ product }) {
                 <Ruler size={15} /> Choosing your size
               </summary>
               <p>
-                XS–XL are demo size options. Exact measurements will be added when physical samples are available. ONE SIZE means a single size option.
+                XS–XL are demo size options. Exact measurements will be added
+                when physical samples are available. ONE SIZE means a single
+                size option.
               </p>
             </details>
             <fieldset>
@@ -208,7 +212,8 @@ function ProductDetails({ product }) {
             <details>
               <summary>Design & materials</summary>
               <p>
-                This is currently a concept design. Materials, care instructions and real photos will be confirmed before sales begin.
+                This is currently a concept design. Materials, care instructions
+                and real photos will be confirmed before sales begin.
               </p>
             </details>
             <details>

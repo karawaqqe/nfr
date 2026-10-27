@@ -1,36 +1,42 @@
-// Все временные иллюстрации лежат в public/products. Здесь заменю пути на реальные фото.
+const photos = {
+  hoodie: new URL("../../img/hoodie/hoodieshopnfr.png", import.meta.url).href,
+  longsleeve: new URL("../../img/tshirt/longshopnfr.png", import.meta.url).href,
+  pants: new URL("../../img/pants/pantsshopnfrback.png", import.meta.url).href,
+  ring: new URL("../../img/rings/nfringshop.png", import.meta.url).href,
+  belt: new URL("../../img/belt/beltshopnfr.png", import.meta.url).href,
+};
 export const categories = [
   {
     slug: "hoodies",
     name: "Hoodies & Sweatshirts",
     label: "Hoodies & Sweatshirts",
-    image: "hoodie",
+    image: photos.hoodie,
   },
   {
     slug: "tops",
     name: "T-Shirts & Tops",
     label: "T-Shirts & Tops",
-    image: "tee",
+    image: photos.longsleeve,
   },
   {
     slug: "pants",
     name: "Pants & Jeans",
     label: "Pants & Jeans",
-    image: "pants",
+    image: photos.pants,
   },
   {
     slug: "jackets",
     name: "Jackets",
     label: "Jackets & Outerwear",
-    image: "jacket",
+    image: null,
   },
   {
     slug: "accessories",
     name: "Accessories",
     label: "Accessories",
-    image: "bag",
+    image: photos.belt,
   },
-  { slug: "jewelry", name: "Jewelry", label: "Jewelry", image: "chain" },
+  { slug: "jewelry", name: "Jewelry", label: "Jewelry", image: photos.ring },
 ];
 
 const items = [
@@ -149,16 +155,16 @@ const items = [
 
 // Единая форма данных позволит позже заменить этот модуль ответом API.
 export const products = items.map(
-  ([id, name, slug, category, price, image, isNew, isFeatured], index) => ({
+  ([id, name, slug, category, price, image, isNew], index) => ({
     id,
     name,
     slug,
     category,
     price,
     isNew,
-    isFeatured,
+    isFeatured: ["01", "03", "08", "10"].includes(id),
     description: `${name} — part of the NFR visual world. A restrained palette, expressive details and freedom to mix. This is a demo design: materials, exact measurements and photos will be added before sales launch.`,
-    images: [`/products/${image}.svg`, `/products/${image}-detail.svg`],
+    images: photos[image] ? [photos[image]] : [],
     sizes:
       category === "jewelry" || category === "accessories"
         ? ["ONE SIZE"]

@@ -1,5 +1,5 @@
 .visual {
-  background: var(--surface);
+  background: #252421;
   position: relative;
   aspect-ratio: 4/5;
   overflow: hidden;
@@ -7,15 +7,21 @@
 .visual > a {
   display: block;
   height: 100%;
+  width: 100%;
 }
 .visual img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  display: block;
+  object-fit: cover;
+  object-position: center;
   transition: transform 0.4s ease;
 }
 .card:hover img {
   transform: scale(1.045);
+}
+.card[data-category="pants"] .visual img {
+  object-position: center top;
 }
 .tags {
   position: absolute;
@@ -54,7 +60,9 @@
   justify-content: space-between;
   gap: 12px;
   padding-top: 16px;
+  align-items: flex-start;
 }
+.info > div { min-width: 0; }
 .info p {
   margin: 0 0 8px;
   font-size: 11px;
@@ -66,7 +74,9 @@
   gap: 8px;
   font-size: 13px;
   font-weight: 600;
+  line-height: 1.5;
 }
+.name svg { flex-shrink: 0; }
 .price {
   white-space: nowrap;
   font-size: 12px;

@@ -38,7 +38,7 @@ export default function Footer() {
       </div>
       <div className={styles.bottom}>
         <span>© {currentYear} NFR</span>
-        <span>Demo storefront · PLN · EN</span>
+        <span>Demo storefront · USD · EN</span>
         <span>NOT FOR EVERYONE. FOR YOU.</span>
       </div>
     </footer>

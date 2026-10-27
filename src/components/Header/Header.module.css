@@ -1,10 +1,35 @@
 .header {
+  --panel-fill: repeating-linear-gradient(115deg, #ffffff03 0 1px, transparent 1px 6px), linear-gradient(110deg, #252824, #121411 65%, #1d201c);
   background: var(--white);
-  position: relative;
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  width: 100%;
+  max-width: 1800px;
+  margin-inline: auto;
   z-index: 20;
+  box-shadow: 0 4px 20px #00000006;
+  transition: background-color 0.25s, box-shadow 0.25s;
+}
+.scrolled {
+  --panel-fill: repeating-linear-gradient(115deg, #ffffff03 0 1px, transparent 1px 6px), linear-gradient(110deg, #252824db, #121411d9 65%, #1d201cdb);
+  background: transparent;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 6px 24px #0000000d;
+}
+.scrolled .bar,
+.scrolled .search {
+  background: #fafaf8b8;
+}
+.scrolled .nav {
+  background: transparent;
+}
+.spacer {
+  height: var(--header-height, 144px);
 }
 .strip {
-  background: var(--ink);
+  background: var(--panel-fill);
   color: white;
   min-height: 32px;
   padding: 8px var(--gutter);
@@ -13,6 +38,7 @@
   gap: 16px;
   font-size: 10px;
   letter-spacing: 0.12em;
+  border-bottom: 1px solid #ffffff1a;
 }
 .strip a {
   display: flex;
@@ -20,29 +46,90 @@
   align-items: center;
 }
 .bar {
-  min-height: 100px;
-  display: flex;
+  /* НАСТРОЙКИ */
+  --wave-speed: 9s; /* Скорость движения */
+  --wave-color: rgba(95, 95, 95, 0.38); /* Сила серого */
+  --wave-size: 300%; /* Ширина и мягкость волны */
+
+  min-height: 112px;
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr) 164px;
   align-items: center;
   justify-content: space-between;
-  padding: 12px var(--gutter);
+  padding: 0 var(--gutter);
   border-bottom: 1px solid var(--border);
-  gap: 28px;
+  gap: 32px;
+
+  background: #ffffff;
+  position: relative;
+  isolation: isolate;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(160, 160, 160, 0.03) 38%,
+    rgba(130, 130, 130, 0.13) 43%,
+    var(--wave-color) 50%,
+    rgba(130, 130, 130, 0.13) 57%,
+    rgba(160, 160, 160, 0.03) 62%,
+    transparent 65%,
+    transparent 100%
+  );
+
+  background-size: var(--wave-size) 100%;
+  animation: silverWave var(--wave-speed) linear infinite;
+}
+
+@keyframes silverWave {
+  from {
+    background-position: 100% 50%;
+  }
+
+  to {
+    background-position: 0% 50%;
+  }
 }
 .logo {
   display: flex;
   align-items: center;
   gap: 14px;
+  padding-block: 14px;
 }
 .logo img {
-  height: 72px;
-  width: 72px;
+  height: 64px;
+  width: 64px;
   object-fit: cover;
 }
-.logo span {
+.brandText {
   max-width: 65px;
   font-size: 10px;
   line-height: 1.5;
   letter-spacing: 0.12em;
+}
+.brandText strong {
+  display: block;
+  font-size: 21px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.brandText > span {
+  font-size: 8px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
 }
 .nav,
 .actions {
@@ -51,15 +138,118 @@
   gap: 32px;
 }
 .nav a {
-  font-size: 13px;
-  padding: 10px 0;
-  border-bottom: 1px solid transparent;
+  font-size: clamp(12px, 0.85vw, 13px);
+  padding: 14px 18px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #e2e3dc;
+  white-space: nowrap;
+  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+  transition: background 0.2s, color 0.2s;
+}
+.navLabel {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+.navArrow {
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.nav a:hover .navArrow,
+.nav a[aria-current="page"] .navArrow {
+  opacity: 1;
+  transform: translate(0, 0);
 }
 .nav a:hover {
-  border-color: var(--ink);
+  background: #ffffff0c;
+  color: white;
+}
+.nav a[aria-current="page"] {
+  background: #e7e9de;
+  color: #171817;
+}
+.nav {
+  position: relative;
+  isolation: isolate;
+  justify-content: center;
+  justify-self: center;
+  gap: clamp(4px, 1.1vw, 20px);
+  align-self: start;
+  width: 100%;
+  min-height: 88px;
+  padding: 18px 34px 22px;
+  background: #62655b;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 28px) 100%, 28px 100%);
+}
+.nav::before {
+  content: "";
+  position: absolute;
+  inset: 1px 2px 2px;
+  background: var(--panel-fill);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 27px) 100%, 27px 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+.nav::after {
+  content: "";
+  position: absolute;
+  width: calc(100% - 100px);
+  height: 1px;
+  bottom: 11px;
+  left: 50px;
+  background: linear-gradient(90deg, #ffffff24 0 40%, #c5cea3 40% 43%, #ffffff24 43% 100%);
+}
+.panelMark,
+.panelEdition {
+  position: absolute;
+  top: 30px;
+  font: 9px/1.4 "Courier New", monospace;
+  letter-spacing: 0.06em;
+  color: #d9dccd;
+  pointer-events: none;
+}
+.panelMark { left: 40px; }
+.panelEdition { right: 40px; text-align: right; }
+.panelMark > span,
+.panelEdition > span {
+  display: block;
+  font-size: 7px;
+  margin-top: 4px;
+  color: #919887;
+}
+.navIndex {
+  font-size: 8px;
+  align-self: flex-start;
+  color: inherit;
+  opacity: 0.5;
+  letter-spacing: 0.04em;
+}
+.dropDot {
+  width: 4px;
+  height: 4px;
+  background: #c5cea3;
+  border-radius: 50%;
 }
 .actions {
-  gap: 14px;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.actions :global(.iconButton) {
+  border: 1px solid #deded7;
+  min-width: 42px;
+  min-height: 42px;
+  background: #fff8;
+  transition: background 0.2s, transform 0.2s;
+}
+.actions :global(.iconButton):hover {
+  transform: translateY(-2px);
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
 }
 .badge {
   position: absolute;
@@ -77,7 +267,7 @@
 .count {
   font-size: 11px;
 }
-.menuButton {
+.actions .menuButton {
   display: none;
 }
 .search {
@@ -90,7 +280,10 @@
 .search input {
   flex: 1;
 }
-@media (max-width: 760px) {
+@media (max-width: 1400px) {
+  .panelMark, .panelEdition { display: none; }
+}
+@media (max-width: 1000px) {
   .strip > span {
     display: none;
   }
@@ -98,6 +291,8 @@
     justify-content: center;
   }
   .bar {
+    display: flex;
+    align-items: center;
     min-height: 82px;
     gap: 10px;
   }
@@ -105,10 +300,10 @@
     width: 54px;
     height: 54px;
   }
-  .logo span {
+  .brandText {
     display: none;
   }
-  .menuButton {
+  .actions .menuButton {
     display: inline-flex;
   }
   .actions {
@@ -117,13 +312,33 @@
   .nav {
     display: none;
     position: absolute;
-    top: 114px;
+    top: 100%;
     left: 0;
     right: 0;
     background: white;
-    padding: 24px;
+    padding: 20px var(--gutter) 28px;
     border-bottom: 1px solid var(--border);
+    z-index: 3;
+    width: 100%;
+    clip-path: none;
+    gap: 8px;
+    min-height: 0;
+    box-shadow: 0 20px 30px #0000000a;
   }
+  .nav::before, .nav::after { display: none; }
+  .nav a {
+    width: 100%;
+    font-size: 16px;
+    color: var(--ink);
+    padding: 16px 22px;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 100%, 0 100%);
+  }
+  .navArrow { opacity: 1; transform: none; margin-left: auto; }
+  .navIndex { align-self: center; }
+  .navLabel { letter-spacing: -0.025em; }
+  .nav a:hover { background: var(--surface); color: var(--ink); }
+  .nav a[aria-current="page"] { background: var(--ink); color: white; }
+  .scrolled .nav { background: #fafaf8f5; }
   .open {
     display: flex;
     flex-direction: column;

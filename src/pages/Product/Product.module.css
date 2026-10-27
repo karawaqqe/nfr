@@ -4,12 +4,17 @@
   gap: 7%;
 }
 .mainImage {
-  background: var(--surface);
+  background: #252421;
   position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
 }
 .mainImage > img {
   width: 100%;
-  aspect-ratio: 1;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  display: block;
   object-fit: contain;
 }
 .mainImage > span {
@@ -124,6 +129,9 @@
 .related {
   margin-top: 90px;
 }
+
+
+
 @media (max-width: 760px) {
   .layout {
     grid-template-columns: 1fr;

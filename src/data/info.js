@@ -6,7 +6,7 @@ export const infoPages = {
     sections: [
       ["Freedom to be yourself", "We connect with people who find themselves in music, art and pieces with character. NFR is a space for personal style and self-expression."],
       ["Quiet design. Loud character.", "Black silhouettes, metal details and relaxed fits. Our visual world is built on contrast, with room for your interpretation."],
-      ["The first chapter", "NFR is currently an independent frontend project. The catalog contains concept designs and placeholder illustrations. Real sales, production and shipping have not launched yet."],
+      ["The first chapter", "NFR is currently an independent frontend project. The catalog features collection imagery; pieces without an image are marked NO PHOTO. Real sales, production and shipping have not launched yet."],
     ],
   },
   contact: {
@@ -44,7 +44,7 @@ export const infoPages = {
     title: "Try the\nexperience.",
     intro: "This version of NFR is a demo storefront frontend.",
     sections: [
-      ["Catalog", "Products, prices, options and stock levels are demo data. Images are sketches, not photographs of real products."],
+      ["Catalog", "Products, prices, options and stock levels are demo data. Collection imagery illustrates the designs; final product details will be confirmed before sales begin."],
       ["Checkout", "The Create demo order button validates the fields, displays a local confirmation and clears the cart. It does not create a purchase agreement, charge you or send an order to the store."],
       ["The next step", "Real sales require a server, up-to-date inventory, a payment provider, verified seller information and published purchase terms."],
     ],
@@ -54,7 +54,7 @@ export const questions = [
   ["Can I buy the pieces yet?", "Not yet. You can explore the catalog, save pieces and try demo checkout. Real payments are not connected."],
   ["Is my cart saved?", "Yes, in this browser using localStorage. If your browser blocks storage, a warning will appear. A different browser has a separate cart."],
   ["How do I add another size?", "Open the product page, choose your size and color, and add the piece. Each option appears as a separate line in the cart."],
-  ["Why are there sketches instead of photos?", "Real photos are not ready yet. Local illustrations show the design and are marked as placeholders. The final product's color and texture may differ."],
+  ["Why do some pieces say NO PHOTO?", "Collection images are being added. Pieces without an image show a NO PHOTO placeholder. More views and final product details will be added before sales begin."],
   ["What happens to my checkout details?", "They are validated in your tab and are not sent to a server. Use fictional details for the demo."],
   ["What if I cannot find anything?", "Check your search, price range and size. Resetting the filters brings back the full catalog."],
 ];

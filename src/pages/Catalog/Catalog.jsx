@@ -137,7 +137,7 @@ export default function Catalog() {
             <SlidersHorizontal size={16} />
           </div>
           <fieldset>
-            <legend>Price, PLN</legend>
+            <legend>Price, $</legend>
             <p className={styles.filterHint}>
               Applied when you leave the field.
             </p>
@@ -209,7 +209,7 @@ export default function Catalog() {
         <div>
           <p className={styles.result} aria-live="polite">
             Items found: {found.length}
-            <span>CONCEPT CATALOG / SKETCHES</span>
+            <span>THE NFR COLLECTION / DROP 001</span>
           </p>
           {found.length ? (
             <ProductGrid products={found} />

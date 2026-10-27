@@ -4,29 +4,77 @@ import { categories, products } from "../../data/products";
 import ProductGrid from "../../components/ProductGrid/ProductGrid";
 import logo from "../../../img/shoplogo.png";
 import styles from "./Home.module.css";
+import ProductImage from "../../components/ProductImage/ProductImage";
+import GhostFibers from "../../components/GhostFibers/GhostFibers";
 
 export default function Home() {
   const featured = products.filter((product) => product.isFeatured).slice(0, 4); // Выбираю витрину из общих данных товаров.
   return (
-    <>
+    <div className={styles.home}>
       <section className={styles.hero}>
+        <div className={styles.heroBackground} aria-hidden="true">
+          <GhostFibers
+            glowColor="#686869"
+            layers={3}
+            twist={1.2}
+            threads={72}
+            fiberStyle="dots"
+            depthOfField={0.85}
+            hoverEffect="focus"
+            intro
+            mouseInteraction
+            lineColor="#ffffff"
+            secondaryColor="#6d6d6d"
+            gradient="depth"
+            waves={1}
+            volume={0.7}
+            spread={1}
+            scale={1}
+            rotation={18}
+            perspective={0.65}
+            density={1}
+            thickness={1}
+            tips={0}
+            foldGlow={1}
+            speed={0.5}
+            flow={0.4}
+            rollSpeed={0.15}
+            focusDepth={0}
+            particles={0.5}
+            sparkle={0.5}
+            glow={0.8}
+            brightness={1}
+            vignette={0.3}
+            grain={0.06}
+            mouseStrength={1}
+            pulseOnClick
+            lightMode={false}
+          />
+        </div>
         <div className={styles.heroText}>
-          <div className="eyebrow">
-            <span className={styles.dot} /> INDEPENDENT CLOTHING / EST. 2026
+          <div className={styles.heroKicker}>
+            <span><span className={styles.dot} /> INDEPENDENT CLOTHING</span>
+            <span>VOL. 001 / EST. 2026</span>
           </div>
+          <div className={styles.titleBlock}>
+          {/* <span className={styles.heroStamp} aria-hidden="true">DRESS<br />OFF SCRIPT ↗</span> */}
           <h1>
-            NOT FOR
-            <br />
-            <span>EVERYONE.</span>
+            <span className={styles.titleLead}>NOT FOR</span>
+            <span className={styles.titleSerif}>EVERYONE.</span>
           </h1>
+          <div className={styles.titleFootnote}><span>NO DRESS CODE. NO PERMISSION NEEDED.</span><Plus size={14} aria-hidden="true" /></div>
+          </div>
           <p>
             Stand apart. Be yourself.
             <br />
             Clothing for those who follow their own rhythm.
           </p>
-          <Link className="button" to="/catalog">
-            Find your own <ArrowUpRight size={19} />
-          </Link>
+          <div className={styles.heroCta}>
+            <Link className={`button ${styles.heroButton}`} to="/catalog">
+              Find your own <ArrowUpRight size={19} />
+            </Link>
+            <span>YOUR WORLD.<br />YOUR UNIFORM.</span>
+          </div>
           <div className={styles.heroBottom}>
             <span>DROP 001 / OUT OF LINE</span>
             <a href="#selected" aria-label="Explore selected pieces">
@@ -39,20 +87,18 @@ export default function Home() {
             <span>NFR® STUDIO</span>
             <span>001 — 026</span>
           </div>
-          <span className={styles.outline}>
-            OUT
-            <br />
-            OF LINE
-          </span>
-          <img
-            src="/products/hoodie.svg"
-            alt="Sketch of the black Void hoodie with NFR graphics"
+          <ProductImage
+            src={products.find((product) => product.id === "08").images[0]}
+            alt="Void oversized hoodie with distressed NFR lettering"
+            loading="eager"
           />
+          <span className={styles.photoIndex} aria-hidden="true">01 / OUT OF LINE</span>
+          {/* <div className={styles.photoTicket} aria-hidden="true"><span>THE FIRST CHAPTER</span><strong>Outsiders<br />welcome.</strong><span>NFR® — INDEPENDENT BY DESIGN</span></div> */}
           <div className={styles.artCaption}>
             <span>
               VOID OVERSIZED HOODIE
               <br />
-              <small>COLLECTION CONCEPT / SKETCH</small>
+              <small>DROP 001 / NFR STUDIO</small>
             </span>
             <Link
               to="/product/void-hoodie"
@@ -73,7 +119,7 @@ export default function Home() {
         <Plus size={18} />
         <span>NFR WORLDWIDE</span>
       </div>
-      <section className="section" id="selected">
+      <section className={`${styles.selection} section`} id="selected">
         <div className="sectionHeading">
           <div>
             <span className="eyebrow">01 / THE SELECTION</span>
@@ -104,8 +150,9 @@ export default function Home() {
               className={styles.category}
             >
               <span className="eyebrow">0{index + 1}</span>
-              <img
-                src={`/products/${category.image}.svg`}
+              <ProductImage
+                className={styles.categoryImage}
+                src={category.image}
                 alt=""
                 loading="lazy"
               />
@@ -119,12 +166,12 @@ export default function Home() {
       </section>
       <section className={styles.drop}>
         <div className={styles.dropImage}>
-          <img
-            src="/products/jacket.svg"
-            alt="Sketch of the Static jacket from the first collection"
+          <ProductImage
+            src={products.find((product) => product.id === "08").images[0]}
+            alt="Ruin long sleeve — front and back"
             loading="lazy"
           />
-          <span>PROTOTYPE / STATIC 001</span>
+          <span>RUIN LONG SLEEVE / DROP 001</span>
         </div>
         <div className={styles.dropText}>
           <span className="eyebrow">NEW COLLECTION / DROP 001</span>
@@ -178,6 +225,6 @@ export default function Home() {
           View the new collection <ArrowUpRight size={18} />
         </Link>
       </section>
-    </>
+    </div>
   );
 }

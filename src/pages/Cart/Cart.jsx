@@ -7,6 +7,7 @@ import Quantity from "../../components/Quantity/Quantity";
 import EmptyState from "../../components/EmptyState/EmptyState";
 import OrderSummary from "../../components/OrderSummary/OrderSummary";
 import styles from "./Cart.module.css";
+import ProductImage from "../../components/ProductImage/ProductImage";
 
 export default function Cart() {
   const { cart, count, removeFromCart, updateQuantity } = useShop();
@@ -29,7 +30,7 @@ export default function Cart() {
                       to={`/product/${product.slug}`}
                       className={styles.image}
                     >
-                      <img src={product.images[0]} alt={product.name} />
+                      <ProductImage src={product.images[0]} alt={product.name} />
                     </Link>
                     <div className={styles.info}>
                       <Link to={`/product/${product.slug}`}>

@@ -4,7 +4,7 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 24px;
+  scroll-padding-top: calc(var(--header-height, 144px) + 24px);
 }
 body {
   margin: 0;

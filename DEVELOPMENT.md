@@ -13,9 +13,9 @@ React + Vite, JavaScript, React Router, CSS Modules, Lucide. TypeScript в ис�
 
 ## Где что менять
 
-- `src/data/products.js` — товары, категории, цены PLN, варианты и остатки.
-- `public/products/` — локальные временные SVG-эскизы. Заменить пути в `images` у товаров реальными фотографиями. В интерфейсе удалить подписи об эскизах только после замены.
-- `scripts/generate-placeholders.mjs` — воспроизводимая генерация эскизов: `npm run assets`.
+- `src/data/products.js` — товары, категории, цены USD, варианты и остатки. Изображения подключены из `img/` через `new URL`, Vite включает их в сборку.
+- `img/hoodie`, `img/tshirt`, `img/pants`, `img/rings`, `img/belt` — изображения коллекции. Для нового изображения добавьте путь в `photos` и привяжите ключ к товару.
+- `src/components/ProductImage/` — общая заглушка с камерой и надписью NO PHOTO. Используется при отсутствии изображения и ошибке загрузки.
 - `img/shoplogo.png` — исходный логотип пользователя, сохранён без изменений.
 - `src/styles/variables.css` — палитра и отступы. `global.css` — общие элементы. Остальные стили находятся рядом с компонентами.
 - `src/context/ShopProvider.jsx` — корзина и избранное. `src/utils/shop.js` — валидация корзины и фильтры.

@@ -1,7 +1,7 @@
 import { categories, getProduct } from "../data/products.js";
 
 export const formatPrice = (value) =>
-  new Intl.NumberFormat("en-GB", { style: "currency", currency: "PLN" }).format(
+  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(
     value,
   ); // Одинаковый формат цен во всём магазине.
 export const itemKey = (item) => `${item.id}:${item.size}:${item.color}`; // Size и цвет отличают позиции одного товара.
