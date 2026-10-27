@@ -1,0 +1,64 @@
+.page {
+  max-width: 1100px;
+  margin: auto;
+}
+.page h1 {
+  white-space: pre-line;
+  font-size: clamp(42px, 7vw, 90px);
+  line-height: 1;
+  margin: 28px 0;
+}
+.intro {
+  max-width: 650px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 60px;
+}
+.sections {
+  margin-bottom: 40px;
+}
+.sections article {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 20px;
+  border-top: 1px solid var(--border);
+  padding: 30px 0;
+}
+.sections article > span {
+  padding-top: 5px;
+}
+.sections h2 {
+  margin: 0 0 18px;
+  font-size: 23px;
+  letter-spacing: -0.03em;
+}
+.sections p,
+.faq p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--muted);
+  max-width: 650px;
+}
+.faq {
+  margin-bottom: 40px;
+}
+.faq details {
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+}
+.faq summary {
+  font-size: 17px;
+}
+.faq p {
+  margin-bottom: 0;
+}
+@media (max-width: 550px) {
+  .sections article {
+    grid-template-columns: 30px 1fr;
+  }
+  .intro {
+    font-size: 15px;
+    margin-bottom: 36px;
+  }
+}

@@ -1,0 +1,141 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 7%;
+}
+.mainImage {
+  background: var(--surface);
+  position: relative;
+}
+.mainImage > img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+.mainImage > span {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.thumbnails {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+.thumbnails button {
+  width: 80px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 0;
+}
+.thumbnails button[aria-pressed="true"] {
+  border-color: var(--ink);
+}
+.thumbnails img {
+  width: 100%;
+  display: block;
+}
+.details {
+  padding-top: 20px;
+}
+.details h1 {
+  font-size: clamp(30px, 3.2vw, 52px);
+  margin: 20px 0;
+}
+.price {
+  font-size: 22px;
+}
+.description {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.stock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  margin: 24px 0;
+}
+.stock > span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.details fieldset {
+  padding: 0;
+  border: 0;
+  margin: 24px 0;
+}
+.details legend {
+  margin-bottom: 12px;
+  font-size: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.details legend span {
+  color: var(--muted);
+}
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sizeGuide summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+.sizeGuide p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.buyRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.buyRow > :global(.button) {
+  flex: 1;
+}
+.success {
+  font-size: 12px;
+  line-height: 2;
+}
+.notes {
+  margin-top: 28px;
+}
+.notes details {
+  border-top: 1px solid var(--border);
+  padding: 18px 0;
+  font-size: 12px;
+}
+.notes p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+.related {
+  margin-top: 90px;
+}
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .details {
+    padding: 0;
+  }
+  .related {
+    margin-top: 56px;
+  }
+  .buyRow > :global(.button) {
+    min-width: 160px;
+  }
+}

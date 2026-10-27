@@ -1,0 +1,83 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr);
+  gap: 64px;
+  margin-top: 36px;
+}
+.layout h2 {
+  font-size: 20px;
+  margin: 0 0 26px;
+}
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 18px;
+}
+.fields label {
+  display: grid;
+  gap: 9px;
+  font-size: 12px;
+}
+.wide {
+  grid-column: 1/-1;
+}
+.fields input,
+.fields select {
+  width: 100%;
+}
+.hint {
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.payment {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+  margin: 28px 0;
+}
+.payment h2 {
+  margin-bottom: 12px;
+}
+.payment p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.layout form > button {
+  width: 100%;
+  margin-top: 24px;
+}
+.layout :global(.checkbox) a {
+  text-decoration: underline;
+}
+.complete {
+  padding: 90px var(--gutter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
+.complete h1 {
+  margin: 0;
+}
+.complete p {
+  line-height: 1.8;
+  font-size: 14px;
+  margin: 0;
+}
+.complete > a {
+  margin-top: 20px;
+}
+@media (max-width: 850px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+@media (max-width: 480px) {
+  .fields {
+    grid-template-columns: 1fr;
+  }
+}

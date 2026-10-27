@@ -1,0 +1,153 @@
+.header {
+  background: var(--white);
+  position: relative;
+  z-index: 20;
+}
+.strip {
+  background: var(--ink);
+  color: white;
+  min-height: 32px;
+  padding: 8px var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+.strip a {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.bar {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px var(--gutter);
+  border-bottom: 1px solid var(--border);
+  gap: 28px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.logo img {
+  height: 72px;
+  width: 72px;
+  object-fit: cover;
+}
+.logo span {
+  max-width: 65px;
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+}
+.nav,
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav a {
+  font-size: 13px;
+  padding: 10px 0;
+  border-bottom: 1px solid transparent;
+}
+.nav a:hover {
+  border-color: var(--ink);
+}
+.actions {
+  gap: 14px;
+}
+.badge {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: var(--ink);
+  color: white;
+  font-size: 9px;
+  min-width: 15px;
+  height: 15px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.count {
+  font-size: 11px;
+}
+.menuButton {
+  display: none;
+}
+.search {
+  display: flex;
+  padding: 24px var(--gutter);
+  gap: 16px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+.search input {
+  flex: 1;
+}
+@media (max-width: 760px) {
+  .strip > span {
+    display: none;
+  }
+  .strip {
+    justify-content: center;
+  }
+  .bar {
+    min-height: 82px;
+    gap: 10px;
+  }
+  .logo img {
+    width: 54px;
+    height: 54px;
+  }
+  .logo span {
+    display: none;
+  }
+  .menuButton {
+    display: inline-flex;
+  }
+  .actions {
+    gap: 2px;
+  }
+  .nav {
+    display: none;
+    position: absolute;
+    top: 114px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    animation: enter 0.2s ease;
+  }
+  .search {
+    flex-wrap: wrap;
+  }
+  .search label {
+    width: 100%;
+  }
+  .search input {
+    min-width: 0;
+    width: 50%;
+  }
+}
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
