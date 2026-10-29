@@ -16,7 +16,7 @@ export default function ProductCard({ product }) {
           <ProductImage src={product.images[0]} />
         </Link>
         <div className={styles.tags}>
-          {product.isNew && <span>NEW DROP</span>}
+          {product.isNew && <span className={styles.newDrop}>NEW DROP</span>}
           {!product.stock && <span>OUT OF STOCK</span>}
         </div>
         <button

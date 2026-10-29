@@ -57,7 +57,7 @@ export default function Header() {
     <div className={styles.spacer} aria-hidden="true" />
     <header
       ref={headerRef}
-      className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}
+      className={`${styles.header} ${location.pathname === "/" ? styles.homeHeader : ""} ${scrolled ? styles.scrolled : ""}`}
       onKeyDown={(event) => {
         if (event.key === "Escape") {
           setMenuOpen(false);
@@ -79,10 +79,14 @@ export default function Header() {
           onClick={() => setMenuOpen(false)}
         >
           <img src={logo} alt="NFR" />
-          <span className={styles.brandText}>
-            <strong>NFR®</strong>
-            <span>NOT FOR<br />EVERYONE</span>
-          </span>
+          {location.pathname === "/" ? (
+            <span className={styles.brandSignature}>no future remains</span>
+          ) : (
+            <span className={styles.brandText}>
+              <strong>NFR®</strong>
+              <span>NOT FOR<br />EVERYONE</span>
+            </span>
+          )}
         </Link>
         <nav
           aria-label="Main navigation"

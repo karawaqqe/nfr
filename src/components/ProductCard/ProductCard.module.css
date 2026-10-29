@@ -37,6 +37,10 @@
   font-size: 9px;
   letter-spacing: 0.07em;
 }
+.tags .newDrop {
+  background: #b5322d;
+  color: #fff;
+}
 .favorite {
   position: absolute;
   top: 8px;

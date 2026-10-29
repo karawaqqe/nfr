@@ -356,6 +356,170 @@
     width: 50%;
   }
 }
+.homeHeader {
+  color: #e7e3d8;
+  background: transparent;
+  box-shadow: none;
+}
+.homeHeader .strip {
+  min-height: 26px;
+  padding-block: 6px;
+  background: #0b0c0a35;
+  border-color: #e7e3d817;
+  color: #aaa99e;
+  font-size: 9px;
+  letter-spacing: 0.13em;
+}
+.homeHeader .strip a {
+  color: #d7d3c7;
+}
+.homeHeader .bar {
+  background: transparent;
+  min-height: 76px;
+}
+.homeHeader .search,
+.homeHeader .nav {
+  background: #141612;
+}
+.homeHeader.scrolled .bar,
+.homeHeader.scrolled .strip {
+  background: #111210c9;
+}
+.homeHeader.scrolled {
+  box-shadow: 0 8px 28px #0002;
+}
+.homeHeader.scrolled .search,
+.homeHeader.scrolled .nav.open {
+  background: #111210f5;
+}
+.homeHeader .bar {
+  border-color: transparent;
+  box-shadow: none;
+}
+.homeHeader .bar::before,
+.homeHeader .nav::before,
+.homeHeader .nav::after,
+.homeHeader .panelMark,
+.homeHeader .panelEdition {
+  display: none;
+}
+.homeHeader .logo img {
+  width: 48px;
+  height: 48px;
+  filter: invert(1) sepia(0.15);
+  mix-blend-mode: screen;
+}
+.homeHeader .logo {
+  padding-block: 10px;
+}
+.brandSignature {
+  color: #a8a99e;
+  font: 10px/1.6 "Courier New", monospace;
+  transform: translateY(3px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.homeHeader .brandText > span {
+  color: #a7a79a;
+}
+.homeHeader .nav a {
+  color: #c3c2b6;
+  clip-path: none;
+}
+.homeHeader .navLabel {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+.homeHeader .navIndex {
+  color: #9c9d8d;
+}
+.homeHeader .nav a::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 5px;
+  height: 1px;
+  background: #e7e3d8;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s;
+}
+.homeHeader .nav a:hover {
+  color: #f3f1e8;
+  background: #e7e3d808;
+}
+.homeHeader .nav a[aria-current="page"] {
+  background: #e7e3d80c;
+  color: #e7e3d8;
+}
+.homeHeader .nav a:hover::after,
+.homeHeader .nav a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+.homeHeader .actions :global(.iconButton) {
+  background: transparent;
+  color: #e7e3d8;
+  border-color: #e7e3d828;
+}
+.homeHeader .actions :global(.iconButton):hover,
+.homeHeader .actions :global(.iconButton)[aria-expanded="true"] {
+  background: #e7e3d8;
+  border-color: #e7e3d8;
+  color: #111210;
+}
+.homeHeader .badge {
+  background: #e7e3d8;
+  color: #111210;
+}
+.homeHeader .search,
+.homeHeader .nav {
+  border-color: #e7e3d826;
+}
+.homeHeader .search input {
+  background: #ffffff05;
+  border-color: #e7e3d838;
+  color: #e7e3d8;
+  color-scheme: dark;
+}
+.homeHeader .search input::placeholder {
+  color: #95968b;
+}
+.homeHeader .search :global(.button) {
+  background: #e7e3d8;
+  border-color: #e7e3d8;
+  color: #111210;
+}
+.homeHeader .search :global(.button):hover {
+  background: white;
+}
+.homeHeader :focus-visible {
+  outline-color: #e7e3d8;
+}
+@media (min-width: 1001px) {
+  .homeHeader .bar {
+    min-height: 76px;
+    grid-template-columns: 220px minmax(0, 1fr) 164px;
+    gap: 24px;
+  }
+  .homeHeader .nav {
+    align-self: center;
+    min-height: 0;
+    padding: 0;
+    clip-path: none;
+    background: transparent;
+  }
+}
+@media (max-width: 1000px) {
+  .homeHeader .bar { min-height: 70px; }
+  .homeHeader .logo { padding-block: 8px; }
+  .homeHeader .navLabel { font-size: 14px; }
+}
+@media (max-width: 600px) {
+  .brandSignature { display: none; }
+}
 @keyframes enter {
   from {
     opacity: 0;

@@ -1,50 +1,205 @@
 .footer {
-  border-top: 1px solid var(--ink);
-  padding: 64px var(--gutter) 20px;
+  position: relative;
+  isolation: isolate;
+  padding: 0 var(--gutter) 24px;
+  background: #151613;
+  color: #e7e3d8;
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e7e3d82e 24%, #e7e3d861 50%, #e7e3d82e 76%, transparent);
+  pointer-events: none;
+}
+.homeFooter {
+  width: 100vw;
+  left: calc(50% - 50vw);
+  padding-inline: max(var(--gutter), calc((100vw - 1800px) / 2 + var(--gutter)));
+  background:
+    radial-gradient(ellipse at 22% 0, #e7e3d80b, transparent 58%),
+    radial-gradient(ellipse at 90% 100%, #a8312b07, transparent 52%),
+    linear-gradient(120deg, #e7e3d80b, #e7e3d805 65%, #e7e3d809);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+:global(html):has(.homeFooter) {
+  overflow-x: clip;
+}
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-block: 20px;
+  border-bottom: 1px solid #e7e3d815;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font: 10px/1.6 "Courier New", monospace;
+  letter-spacing: 0.1em;
+}
+.brand img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: invert(1) sepia(0.15);
+  mix-blend-mode: screen;
+}
+.backToTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 44px;
+  padding: 0 0 0 12px;
+  background: transparent;
+  border: 0;
+  color: #b9bbaf;
+  font: 9px/1.5 "Courier New", monospace;
+  letter-spacing: 0.12em;
+}
+.backToTop svg {
+  box-sizing: content-box;
+  padding: 13px;
+  border: 1px solid #e7e3d829;
+  background: #e7e3d804;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+.backToTop:is(:hover, :focus-visible) { color: #fff; }
+.backToTop:is(:hover, :focus-visible) svg {
+  background: #b5322d17;
+  border-color: #b5322d;
+  transform: translateY(-2px);
 }
 .top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 48px;
-  padding-bottom: 64px;
+  grid-template-columns: 1.5fr 0.8fr 1fr;
+  gap: clamp(32px, 5vw, 80px);
+  padding-block: 44px 48px;
 }
-.top h2 {
-  margin: 20px 0;
-  font-size: clamp(32px, 4vw, 58px);
-  line-height: 1.05;
-  letter-spacing: -0.05em;
-}
-.top h3 {
-  font-size: 12px;
+.statement h2 {
   margin: 0 0 24px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-family: "UnifrakturMaguntia", Georgia, serif;
+  font-size: clamp(48px, 5vw, 80px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-shadow: 0 1px 12px #e7e3d808;
 }
-.top > div > a {
+.statement h2 > span {
+  display: block;
+}
+.statement h2 > span + span {
+  margin-left: 0.22em;
+}
+.accent { color: #b5322d; }
+.statement > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  gap: 20px;
+  padding-bottom: 4px;
+  border-color: #b5322d80;
+  color: #bfc0b6;
+  font: 10px/1.6 "Courier New", monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.statement > a:is(:hover, :focus-visible) {
+  color: #fff;
+  border-color: #b5322d;
+}
+.navigation {
+  min-width: 0;
+  padding: 6px 0 0 clamp(20px, 2.3vw, 40px);
+  border-left: 1px solid #e7e3d815;
+}
+.navigation h3 {
   display: flex;
-  width: fit-content;
-  margin: 14px 0;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 18px;
+  color: #c4c5b9;
+  font: 10px/1.6 "Courier New", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.navigation h3 > span {
+  color: #c44b43;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+}
+.navigation > a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 38px;
+  padding-block: 7px;
+  border-bottom: 1px solid #e7e3d80c;
+  color: #b9bcb0;
   font-size: 13px;
+  line-height: 1.5;
+}
+.navigation > a > svg {
+  flex-shrink: 0;
+  color: #6e7469;
+  transition: transform 0.2s, color 0.2s;
+}
+.navigation > a:is(:hover, :focus-visible) { color: #fff; }
+.navigation > a:is(:hover, :focus-visible) > svg {
+  color: #d15a50;
+  transform: translateX(3px);
 }
 .bottom {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
-  border-top: 1px solid var(--border);
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  border-top: 1px solid #e7e3d81f;
   padding-top: 20px;
-  color: var(--muted);
-  font-size: 10px;
+  color: #93978b;
+  font: 10px/1.6 "Courier New", monospace;
   letter-spacing: 0.04em;
 }
-@media (max-width: 650px) {
-  .top {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-  .top > div:first-child {
-    grid-column: 1/-1;
-  }
-  .bottom {
-    flex-direction: column;
-  }
+.bottom > span:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 9px;
+  letter-spacing: 0.09em;
+}
+.bottom > span:last-child::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  background: #b5322d;
+}
+.footer :focus-visible { outline-color: #e7e3d8; }
+@media (max-width: 1000px) {
+  .top { grid-template-columns: 1.2fr 0.9fr 1fr; gap: 28px; }
+  .navigation { padding-left: 20px; }
+}
+@media (max-width: 760px) {
+  .topBar { padding-block: 18px; gap: 16px; }
+  .brand { gap: 10px; font-size: 9px; letter-spacing: 0.03em; }
+  .brand img { width: 40px; height: 40px; }
+  .backToTop > span { display: none; }
+  .top { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 24px; padding-block: 32px 36px; }
+  .statement { grid-column: 1 / -1; }
+  .statement h2 { font-size: clamp(52px, 10vw, 72px); }
+  .navigation { padding: 0; border-left: 0; }
+  .navigation h3 { gap: 10px; margin-bottom: 14px; font-size: 9px; letter-spacing: 0.08em; }
+  .navigation > a { min-height: 44px; font-size: 12px; gap: 8px; }
+  .bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .backToTop svg,
+  .navigation > a > svg { transition: none; }
+  .backToTop:is(:hover, :focus-visible) svg,
+  .navigation > a:is(:hover, :focus-visible) > svg { transform: none; }
 }
